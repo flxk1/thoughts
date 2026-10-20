@@ -16,3 +16,7 @@ venv/
 # working files never ship
 **/drafts/
 **/work/
+
+# local only — rights not settled for publication
+/recht-der-unkoerperlichen-verwertung/
+/urheberrechtlicher-schutz-von-chatgpt-texten/
