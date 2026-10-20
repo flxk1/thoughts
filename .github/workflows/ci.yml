@@ -15,36 +15,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: every paper's references are cited and defined, its quotes are listed, its script parses
+      - name: every paper's references are cited and defined, its quotes are grounded, its script parses
         run: |
           set -e
           for d in */; do
             [ -f "$d/paper.md" ] || continue
-            echo "== $d"
-            python3 - "$d" <<'EOF'
-          import json, re, sys
-          d = sys.argv[1]
-          s = open(f"{d}/paper.md").read()
-          body, refs = s.split("## References", 1)
-          defined = set(re.findall(r"^- \[([A-Z0-9-]+)\]", refs, re.M))
-          cited = set()
-          for grp in re.findall(r"\[([^\]]+)\]", body):
-              for k in re.split(r"[;,]\s*", grp):
-                  k = k.strip().split()[0] if k.strip() else ""
-                  if re.fullmatch(r"[A-Z0-9][A-Z0-9-]+", k) and k not in ("README", "SPEC"):
-                      cited.add(k)
-          assert not (cited - defined), f"cited but undefined: {sorted(cited - defined)}"
-          assert not (defined - cited), f"defined but uncited: {sorted(defined - cited)}"
-          # every grounded repository quote is still in the text (quotes from standards are not repository quotes)
-          norm = lambda t: re.sub(r"\s+", " ", t.replace("“", '"').replace("”", '"').replace("’", "'"))
-          text = norm(body)
-          listed = json.load(open(f"{d}/quote-grounding.json"))
-          missing = [q["quote"][:40] for q in listed if norm(q["quote"]) not in text]
-          assert not missing, f"grounded but no longer quoted: {missing}"
-          quotes = re.findall(r"\*“([^”]+)”\*", body)
-          print(f"{len(defined)} references, {len(quotes)} quotes, {len(listed)} grounded in repositories")
-          EOF
-          EOF
+            python3 tools/check_paper.py "$d"
             bash -n "$d/reproduce.sh"
           done
   commit-discipline:
