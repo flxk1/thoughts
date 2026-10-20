@@ -356,7 +356,7 @@ H3c    agent -> master                     reject@apply (both)
 - [ISO22989] ISO/IEC 22989:2022, *Information technology — Artificial intelligence — Artificial intelligence concepts and terminology*, 1st ed., 2022-07, ISO/IEC JTC 1/SC 42. Defs 3.1.5, 3.1.16, 3.5.6; clause 5.13 and Table 1.
 - [ISO42001] ISO/IEC 42001:2023, *Information technology — Artificial intelligence — Management system*, 1st ed., 2023-12. A.6.2.8 event logs; A.9.2 responsible use.
 - [JONES] A. J. I. Jones, M. Sergot, "A Formal Characterisation of Institutionalised Power", *Logic Journal of the IGPL* 4(3), 427–443, 1996, doi:10.1093/jigpal/4.3.427.
-- [KIT] F. Krone, *Whether an action may take effect* — paper and reproduction kit, https://github.com/flxk1/thoughts, directory `whether-an-action-may-take-effect`, tag `whether-an-action-may-take-effect/v1.0.1`.
+- [KIT] F. Krone, *Whether an action may take effect* — paper and reproduction kit, https://github.com/flxk1/thoughts, directory `whether-an-action-may-take-effect`, tag `whether-an-action-may-take-effect/v1.0.2`.
 - [KAOS] A. Uszok, J. M. Bradshaw, R. Jeffers et al., "KAoS policy and domain services: toward a description-logic approach to policy representation, deconfliction, and enforcement", *POLICY 2003*, 93–96, doi:10.1109/POLICY.2003.1206963.
 - [LOOP] Kumar, "Loopjacking: Hijacking Human-in-the-Loop Approval", arXiv:2609.21081, Sept. 2026.
 - [NIST-AI-100-1] NIST AI 100-1, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, January 2023, doi:10.6028/NIST.AI.100-1. MANAGE 2.4, MAP 3.5, GOVERN 3.2.
