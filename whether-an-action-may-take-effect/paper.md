@@ -476,7 +476,7 @@ H3c    agent -> master                     reject@apply (both)
 - [ISO42001] ISO/IEC 42001:2023, *Information technology — Artificial intelligence — Management system*, 1st ed., 2023-12. A.6.2.8 event logs; A.9.2 responsible use.
 - [ISO42105] ISO/IEC FDIS 42105, *... Guidance for human oversight of AI systems*, SC 42, stage 50.20 as of 2026-10-17; extends ISO/IEC TS 8200.
 - [JONES] A. J. I. Jones, M. Sergot, "A Formal Characterisation of Institutionalised Power", *Logic Journal of the IGPL* 4(3), 427–443, 1996, doi:10.1093/jigpal/4.3.427.
-- [KIT] F. Krone, *Whether an action may take effect* — paper and reproduction kit, https://github.com/flxk1/thoughts, directory `whether-an-action-may-take-effect`, tag `whether-an-action-may-take-effect/v1.0.0`.
+- [KIT] F. Krone, *Whether an action may take effect* — paper and reproduction kit, https://github.com/flxk1/thoughts, directory `whether-an-action-may-take-effect`, tag `whether-an-action-may-take-effect/v1.0.1`.
 - [KAOS] A. Uszok, J. M. Bradshaw, R. Jeffers et al., "KAoS policy and domain services: toward a description-logic approach to policy representation, deconfliction, and enforcement", *POLICY 2003*, 93–96, doi:10.1109/POLICY.2003.1206963.
 - [LI-COMB] N. Li, Q. Wang, W. Qardaji, E. Bertino, P. Rao, J. Lobo, D. Lin, "Access control policy combining: theory meets practice", *SACMAT '09*, 135–144, doi:10.1145/1542207.1542229.
 - [LOOP] Kumar, "Loopjacking: Hijacking Human-in-the-Loop Approval", arXiv:2609.21081, Sept. 2026.
