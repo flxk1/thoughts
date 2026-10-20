@@ -1,14 +1,15 @@
 # thoughts
 
-Papers and essays by Felix Krone, each with the material to check it.
+Papers by Felix Krone, each with what is needed to check it.
 
-| Paper | Directory | Citable version |
+| Paper | Where | Citable version |
 |---|---|---|
-| *Whether an action may take effect* — a governance language for AI agents, and the conformance suite that tests it | [`whether-an-action-may-take-effect/`](whether-an-action-may-take-effect/) | tag `whether-an-action-may-take-effect/v1.0.0` |
+| *Whether an action may take effect* — a governance language for AI agents, and the conformance suite that tests it (2026) | [`whether-an-action-may-take-effect/`](whether-an-action-may-take-effect/) — `paper.pdf`, `paper.md`, `figures/` | tag `whether-an-action-may-take-effect/v1.0.0` |
 
-Each directory holds the text, the figures and a reproduction kit with one entry point. The text is
-licensed CC BY 4.0, the kit's code Apache-2.0 (`LICENSES/`, `REUSE.toml`).
+To check a paper's numbers, run its one script from a clean directory; it clones the repositories at the commits the paper pins and reruns every experiment, and the outputs the paper reports sit beside it under `audit/published/`:
 
-How this is made: I write the code and this text with Loomground agents, using Claude and Codex as
-tools, and I read and correct all of it. An assisted commit ends with a plain line naming the
-assistant; no AI system is an author.
+```
+cd whether-an-action-may-take-effect && bash reproduce.sh historical /tmp/work
+```
+
+Text and figures: CC BY 4.0 (`LICENSE`). Scripts: Apache-2.0, stated in each file. Written with Loomground agents, using Claude and Codex as tools; I read and correct all of it.
