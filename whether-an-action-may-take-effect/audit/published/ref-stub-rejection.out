@@ -1,0 +1,34 @@
+baseline (real implementation): 75/75
+  [PASS] baseline passes every vector (no stub applied yet)
+stub raise-always (reject-at-apply on every input): 9/75
+  [PASS] raise-always stub fails the stricter runner (scores below total)
+  [PASS] raise-always stub fails every patch/determinism vector
+stub reject-at-apply (parses everything, rejects every check()): 5/75
+  [PASS] reject-at-apply stub fails the stricter runner (scores below total)
+  [PASS] reject-at-apply stub fails every patch vector
+  [PASS] reject-at-apply stub fails parse-stage negative vectors (wrong stage)
+stub wrong-reason (correct stage, scrambled reason): 48/75
+  [PASS] wrong-reason stub fails the stricter runner (scores below total)
+  [PASS] wrong-reason stub fails apply-stage negative vectors on reason alone
+stub extra-observation-key (adds an undeclared 'debug' key): 35/75
+  [PASS] extra-observation-key stub fails the stricter runner (scores below total)
+  [PASS] extra-observation-key stub fails every patch vector (whole-observation rule)
+stub missing-observation-key (drops 'reservations'): 35/75
+  [PASS] missing-observation-key stub fails the stricter runner (scores below total)
+stub nondeterministic-evaluate (flips log order every other call): 65/75
+  [PASS] nondeterministic-evaluate stub fails the stricter runner (scores below total)
+  [PASS] nondeterministic-evaluate stub fails every determinism vector
+stub parse-runs-check-reraise (parse() internally runs check and re-raises): 48/75
+  [PASS] parse-runs-check-reraise stub fails the stricter runner (scores below total)
+  [PASS] parse-runs-check-reraise stub fails every apply-stage negative vector (exception inside parse(), rule 2)
+stub evaluate-adds-undeclared-gate (res gets an undeclared gate 'ZZZ_undeclared'): 46/75
+  [PASS] evaluate-adds-undeclared-gate stub fails the stricter runner (scores below total)
+  [PASS] evaluate-adds-undeclared-gate stub fails every determinism vector
+stub lenient-parse-check-reraises-parse-stage (parse() never raises; check() re-raises the real stage=parse reject): 71/75
+  [PASS] lenient-parse-check-reraises-parse-stage stub fails the stricter runner (scores below total)
+  [PASS] lenient-parse-check-reraises-parse-stage stub fails every parse-stage negative vector (survived parse(), rule 2)
+  [PASS] the real implementation is unaffected after every stub's context exits
+
+before (real implementation): 75/75
+all stub checks pass
+exit 0

@@ -1,0 +1,14 @@
+thoughts
+Copyright 2026 flxk1
+
+Papers and essays, each with a reproduction kit.
+
+The text of each paper and its figures are licensed under the Creative Commons
+Attribution 4.0 International licence (see LICENSES/CC-BY-4.0.txt). The
+reproduction kits — scripts, lock files and recorded outputs — are licensed
+under the Apache License, Version 2.0 (see LICENSES/Apache-2.0.txt).
+
+How this is made: the code and the text are written with Loomground agents,
+using Claude and Codex as tools; the author reads and corrects all of it. The
+copyright is held by the human author; an AI system is not an author and holds
+no copyright. An assisted commit ends with a plain line naming the assistant.

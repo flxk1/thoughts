@@ -1,0 +1,10 @@
+exact      [257, 366]     paper=True  loomground/README.md: Every governance tool defines "policy", "gate" and
+exact      [1623, 1710]   paper=True  loomground/spec/SPEC.md: Expressing a measure in this language does not, by
+exact      [12119, 12200] paper=True  loomground/spec/SPEC.md: MUST reject a token lacking a required field or be
+exact      [12308, 12351] paper=True  loomground/spec/SPEC.md: activates no node and produces no log entry
+exact      [33530, 33544] paper=True  loomground/spec/SPEC.md: need not agree
+exact      [37944, 38015] paper=True  loomground/spec/SPEC.md: a conforming implementation's log MUST match the o
+normalised [1894, 1988]   paper=True  loomground/CONTRIBUTING.md: the spec, the grammar, the schemas, the vocabulary
+normalised [16156, 16255] paper=True  loomground/conformance/README.md: an implementation produced without access to this 
+normalised [1861, 1929]   paper=True  loomground/conformance/README.md: a runner MUST fail the vector if a token so marked
+exit 0

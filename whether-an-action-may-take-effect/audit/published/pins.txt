@@ -1,0 +1,5 @@
+loomground 081f1cfccf3724db657428e52d09677c1132e569 (tag v0.11.2; spec, manifest and language card 0.11.2)
+loomground-governance 648cb89ea2bc318b3b666525f807c508c4e03a82 (tag loomground-governance-v0.12.0; standard/CANONICAL "loomground v0.11.2"; standard manifest 0.12.0, vectors byte-identical to loomground's)
+loomground-ref 2417fee0dd596d31f8a3f1495b8d3282a1878ca7 (main; README "implements spec 0.11.2")
+loomground-solver fc7f0f46e3cad33c1510f28ca98c7c3586ba3553 (main)
+loomground-deontic 319e218500da42dea693830ff790343aa340bd60 (tag loomground-deontic-v0.2.1, as pinned by the solver's pyproject.toml; requirements-dev.txt pins 4dec997a583faebe915a392747c031c70c11cf3a = v0.2.0; src/ differs from both 4dec997 and ead0ad2 only in version strings)

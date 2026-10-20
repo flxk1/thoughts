@@ -1,0 +1,125 @@
+[
+ {
+  "quote": "Every governance tool defines \"policy\", \"gate\" and \"verdict\" its own way; nothing is comparable or checkable.",
+  "source": "loomground/README.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:28910cd0e77a39eda9384af2e7b8c0f1697cecae5155b380f5b5f774837a621f",
+  "span": [
+   257,
+   366
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "Expressing a measure in this language does not, by itself, satisfy any legal obligation",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   1623,
+   1710
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "MUST reject a token lacking a required field or bearing a risk outside its domain",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   12119,
+   12200
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "activates no node and produces no log entry",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   12308,
+   12351
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "need not agree",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   33530,
+   33544
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "a conforming implementation's log MUST match the one this rule produces",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   37944,
+   38015
+  ],
+  "match": "exact",
+  "in_paper": true
+ },
+ {
+  "quote": "the spec, the grammar, the schemas, the vocabulary, `llms.txt`, and a conformance vector agree",
+  "source": "loomground/CONTRIBUTING.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:a17d5201deed71d26851af7a5fae0ccda96b1a936e1fb8ad88451379f6bb8b6b",
+  "span": [
+   1894,
+   1988
+  ],
+  "match": "normalised",
+  "source_text": "the spec, the grammar, the schemas, the\nvocabulary, `llms.txt`, and a conformance vector agree",
+  "in_paper": true
+ },
+ {
+  "quote": "an implementation produced without access to this project's implementations reproduces every vector",
+  "source": "loomground/conformance/README.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:c6ed450e8a4ef938efc077b22d0e8956267878277500596a9c2c8aa9f65fbcd6",
+  "span": [
+   16156,
+   16255
+  ],
+  "match": "normalised",
+  "source_text": "an\nimplementation produced without access to this project's implementations\nreproduces every vector",
+  "in_paper": true
+ },
+ {
+  "quote": "a runner MUST fail the vector if a token so marked in fact validates",
+  "source": "loomground/conformance/README.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:c6ed450e8a4ef938efc077b22d0e8956267878277500596a9c2c8aa9f65fbcd6",
+  "span": [
+   1861,
+   1929
+  ],
+  "match": "normalised",
+  "source_text": "a runner MUST\nfail the vector if a token so marked in fact validates",
+  "in_paper": true
+ },
+ {
+  "quote": "A reader MUST NOT assume the reserved action's constraints bind the follow-on activation",
+  "source": "loomground/spec/SPEC.md",
+  "commit": "081f1cfccf3724db657428e52d09677c1132e569",
+  "urn": "urn:kg:sha256:29851415862ecb8950203c585dbee9888ad1ab2ba79beb549aaa7ac2c46cb7b1",
+  "span": [
+   35857,
+   35945
+  ],
+  "match": "exact",
+  "in_paper": true
+ }
+]

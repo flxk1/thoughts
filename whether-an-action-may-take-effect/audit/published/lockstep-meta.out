@@ -1,0 +1,8 @@
+lockstep gate against /Users/rafelixkrone/work/worktrees/paper-pins/loomground
+
+[PASS] declaration → vector
+[PASS] schema field → vector
+[PASS] grammar literal → vector
+
+ALL GREEN
+exit 0

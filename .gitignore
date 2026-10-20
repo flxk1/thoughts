@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+~$*
+
+# per-paper build and run products; the committed paper.pdf is the exception
+**/build/paper.html
+**/build/paper.pdf
+**/paper.docx
+**/audit/historical/
+**/audit/current/
+**/audit/_*.log
+
+# working files never ship
+**/drafts/
+**/work/

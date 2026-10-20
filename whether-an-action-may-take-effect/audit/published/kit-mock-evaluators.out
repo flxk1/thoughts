@@ -1,0 +1,4 @@
+Counter({('patch', ''): 40, ('negative', 'apply'): 27, ('negative', 'parse'): 4, ('token', ''): 2, ('determinism', ''): 2})
+parse always crashes (ZeroDivisionError): 0 / 75
+parse accepts all, validate always ok=False: 0 / 75
+exit 0

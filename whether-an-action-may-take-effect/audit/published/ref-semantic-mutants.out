@@ -1,0 +1,21 @@
+baseline: 75/75
+  [PASS] reserved-before-refused        74/75  caught by 1: refused-precedence
+  [PASS] refused-before-prohibited      74/75  caught by 1: refused-precedence
+  [PASS] grade-clears-reservation       73/75  caught by 2: grade-reserved-precedence, reserve-grant-independence
+  [PASS] ungraded-actor-auto            74/75  caught by 1: grade-ungraded-at-graded
+  [PASS] no-authority-downstream        71/75  caught by 4: pipe-authority-downstream, topo-fanout-fanin-declared-order, topo-fanout-fanin-declared-order-variant, determinism-topo-tie
+  [PASS] risk-floor-ignored             74/75  caught by 1: record-declared-and-observed
+  [GAP ] guard-ge-as-eq                 75/75  caught by 0: 
+        no vector runs a token above a `risk >=` guard's threshold (every run that hits one does so at the threshold value), so `>=` and `=` are not told apart at evaluation; closed by `guard-risk-above-threshold`, absent at manifest 0.11.2
+  [PASS] grant-risk-unnarrowed          73/75  caught by 2: grant-narrowing, reject-delegation-risk-amplify
+  [PASS] join-least-restrictive         70/75  caught by 5: grade-join, pipe-authority-downstream, topo-fanout-fanin-declared-order, topo-fanout-fanin-declared-order-variant, …
+  [PASS] release-on-human               72/75  caught by 3: grade-human, grade-ungraded-at-graded, grade-join
+  [PASS] log-by-name                    68/75  caught by 7: draft-decide-run, grade-join, guard-reversibility, guard-uncertainty, …
+  [PASS] invalid-token-evaluated        71/75  caught by 4: token-validation, risk-enum-values, transport-invalid-token, transport-invalid-token-only
+  [PASS] grade-amplification-allowed    73/75  caught by 2: reject-delegation-grade-amplify, reject-delegation-grade-from-nothing
+  [PASS] risk-amplification-allowed     73/75  caught by 2: reject-delegation-risk-amplify, reject-delegation-ungranted-delegator
+  [PASS] mandate-widening-allowed       73/75  caught by 2: reject-mandate-widen, reject-mandate-from-nothing
+  [PASS] obo-cycle-allowed              74/75  caught by 1: reject-obo-cycle
+restored: 75/75
+
+16 mutants, 15 caught, 1 known gap(s); no unexpected result

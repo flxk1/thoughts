@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 flxk1
+name: ci
+on: [push, pull_request]
+jobs:
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: fsfe/reuse-action@v5
+  papers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: every paper's references are cited and defined, its quotes are listed, its script parses
+        run: |
+          set -e
+          for d in */; do
+            [ -f "$d/paper.md" ] || continue
+            echo "== $d"
+            python3 - "$d" <<'EOF'
+          import json, re, sys
+          d = sys.argv[1]
+          s = open(f"{d}/paper.md").read()
+          body, refs = s.split("## References", 1)
+          defined = set(re.findall(r"^- \[([A-Z0-9-]+)\]", refs, re.M))
+          cited = set()
+          for grp in re.findall(r"\[([^\]]+)\]", body):
+              for k in re.split(r"[;,]\s*", grp):
+                  k = k.strip().split()[0] if k.strip() else ""
+                  if re.fullmatch(r"[A-Z0-9][A-Z0-9-]+", k) and k not in ("README", "SPEC"):
+                      cited.add(k)
+          assert not (cited - defined), f"cited but undefined: {sorted(cited - defined)}"
+          assert not (defined - cited), f"defined but uncited: {sorted(defined - cited)}"
+          # every grounded repository quote is still in the text (quotes from standards are not repository quotes)
+          norm = lambda t: re.sub(r"\s+", " ", t.replace("“", '"').replace("”", '"').replace("’", "'"))
+          text = norm(body)
+          listed = json.load(open(f"{d}/quote-grounding.json"))
+          missing = [q["quote"][:40] for q in listed if norm(q["quote"]) not in text]
+          assert not missing, f"grounded but no longer quoted: {missing}"
+          quotes = re.findall(r"\*“([^”]+)”\*", body)
+          print(f"{len(defined)} references, {len(quotes)} quotes, {len(listed)} grounded in repositories")
+          EOF
+          EOF
+            bash -n "$d/reproduce.sh"
+          done
+  commit-discipline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: no AI co-author trailer; subjects at most 72 characters
+        run: |
+          range="${{ github.event.before }}..${{ github.sha }}"
+          git rev-parse -q --verify "${{ github.event.before }}" >/dev/null 2>&1 || range="${{ github.sha }}"
+          if git log --format=%B "$range" | grep -iE '^Co-Authored-By:'; then echo "AI co-author trailer"; exit 1; fi
+          git log --format=%s "$range" | awk 'length($0) > 72 { print "subject >72 chars: " $0; bad=1 } END { exit bad }'

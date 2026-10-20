@@ -1,0 +1,80 @@
+[H] H1  DPO reservation, risk high
+    ref:      decide=reserved/withhold  log=['reserved']
+    solver:   decide=reserved/withhold  log=['reserved']
+    expected: decide=reserved/withhold  log=['reserved']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H1' risk low, gate floor high
+    ref:      decide=reserved/withhold  log=['reserved']
+    solver:   decide=reserved/withhold  log=['reserved']
+    expected: decide=reserved/withhold  log=['reserved']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H1'' L6 >= required L2, still reserved
+    ref:      decide=reserved/withhold  log=['reserved']
+    solver:   decide=reserved/withhold  log=['reserved']
+    expected: decide=reserved/withhold  log=['reserved']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H3a prohibit beats L6 + reservation
+    ref:      decide=prohibited/withhold  log=['prohibited']
+    solver:   decide=prohibited/withhold  log=['prohibited']
+    expected: decide=prohibited/withhold  log=['prohibited']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H3b ungranted actor
+    ref:      decide=refused/withhold  log=['refused']
+    solver:   decide=refused/withhold  log=['refused']
+    expected: decide=refused/withhold  log=['refused']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H3b' two activations, one gate
+    ref:      decide=refused/withhold  log=['reserved', 'refused']
+    solver:   decide=refused/withhold  log=['reserved', 'refused']
+    expected: decide=refused/withhold  log=['reserved', 'refused']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H2a grade amplification L3 under L2
+    ref:      reject@apply
+    solver:   reject@apply
+    expected: reject@apply
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H2b risk amplification
+    ref:      reject@apply
+    solver:   reject@apply
+    expected: reject@apply
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H2c on-behalf-of cycle
+    ref:      reject@apply
+    solver:   reject@apply
+    expected: reject@apply
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H2d attenuation L2 under L3 (valid)
+    ref:      accepted
+    solver:   accepted
+    expected: accepted
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[H] H3c agent -> master
+    ref:      reject@apply
+    solver:   reject@apply
+    expected: reject@apply
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+
+11/11 probes agree (ref==solver) in this series selection
+exit 0

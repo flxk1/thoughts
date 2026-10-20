@@ -1,0 +1,141 @@
+{
+  "schema": "loomground-paper-I audit manifest v1",
+  "generated_on": "2026-09-26",
+  "pins": {
+    "historical": {
+      "loomground": "081f1cfccf3724db657428e52d09677c1132e569",
+      "loomground-governance": "648cb89ea2bc318b3b666525f807c508c4e03a82",
+      "loomground-ref": "2417fee0dd596d31f8a3f1495b8d3282a1878ca7",
+      "loomground-solver": "fc7f0f46e3cad33c1510f28ca98c7c3586ba3553",
+      "loomground-deontic": "319e218500da42dea693830ff790343aa340bd60"
+    },
+    "current": {
+      "loomground": "13fc82c9c48c007e98f3eeaf54df499768c2e75d",
+      "loomground-governance": "7f04e1c67694ef3eca995d51a61eabecec4cba7c",
+      "loomground-ref": "7baee937befa4ff8372b2b5a412b719a1a2efc50",
+      "loomground-solver": "2eb09a4e650668e674e70821b59caa4b1e7dd067",
+      "loomground-deontic": "ead0ad28a133a9d37f3dbec8e890b6e32b3b7048"
+    }
+  },
+  "note_on_matching_adjudication": "The E-series probe 'E3c id missing, risk=high' (adjudication id F1/missing-id) reproduces at the historical pins as ref=solver=reserved/withhold, not the auto/act recorded for the solver in work/codex-review/adjudication.json. Both observations still show the underlying defect class (an invalid token is evaluated instead of rejected) but the specific verdict differs from the adjudicated record; this is reported here rather than smoothed over. All other E-series and P-series rows reproduce the adjudicated historical_failures exactly (see audit/historical/probes-E.out, audit/historical/probes-P.out).",
+  "claims": [
+    {
+      "claim": "Table 2 counts / vector totals (69 vectors at current pins, 65 at historical pins)",
+      "script": "loomground-ref/tools/verify.py, loomground-solver/tools/run_loomground_conformance.py",
+      "args": "verify.py <loomground checkout root>; run_loomground_conformance.py (no args, imports installed loomground_solver/loomground_governance)",
+      "current": {
+        "output": "audit/current/ref-verify.out, audit/current/solver-conformance.out",
+        "expected_summary": "69/69 vectors pass; 69/69 vectors passed"
+      },
+      "historical": {
+        "output": "audit/historical/ref-verify.out, audit/historical/solver-conformance.out",
+        "expected_summary": "65/65 vectors pass; 65/65 vectors passed"
+      }
+    },
+    {
+      "claim": "Ref verified against both standard copies (loomground and loomground-governance/standard agree)",
+      "script": "loomground-ref/tools/verify.py",
+      "args": "run twice: once against <loomground>, once against <loomground-governance>/standard",
+      "current": {
+        "output": "audit/current/ref-verify.out, audit/current/ref-verify-governance.out",
+        "expected_summary": "69/69 vectors pass (both copies)"
+      },
+      "historical": {
+        "output": "audit/historical/ref-verify.out, audit/historical/ref-verify-governance.out",
+        "expected_summary": "65/65 vectors pass (both copies)"
+      }
+    },
+    {
+      "claim": "49/49 machine-readable checks (schemas, grammar, llms.txt coverage)",
+      "script": "loomground-ref/tests/test_machine_readable.py",
+      "args": "none",
+      "current": {
+        "output": "audit/current/ref-machine-readable.out",
+        "expected_summary": "49/49 machine-readable tests pass"
+      },
+      "historical": {
+        "output": "audit/historical/ref-machine-readable.out",
+        "expected_summary": "49/49 machine-readable tests pass"
+      }
+    },
+    {
+      "claim": "Table 3: eleven H-series probes, ref/solver agreement",
+      "script": "run_experiments.py --series H",
+      "args": "--series H",
+      "current": {
+        "output": "audit/current/probes.out",
+        "expected_summary": "11/11 probes agree (ref==solver) in this series selection"
+      },
+      "historical": {
+        "output": "audit/historical/probes.out",
+        "expected_summary": "11/11 probes agree (ref==solver) in this series selection"
+      }
+    },
+    {
+      "claim": "§5.2 vector inventory: 36 patch vectors, 23 of them carrying a run (transport.json), 13 static-projection only; plus 27 negative-apply, 4 negative-parse, 2 token vectors (32/27/4/2 at the historical 0.11.0 manifest)",
+      "script": "audit/kit-mock-evaluators.py (Counter of (kind,stage)); inline manifest.json + transport.json inventory (see MANIFEST note below)",
+      "args": "none",
+      "current": {
+        "output": "audit/current/kit-mock-evaluators.out",
+        "expected_summary": "Counter({('patch', ''): 36, ('negative', 'apply'): 27, ('negative', 'parse'): 4, ('token', ''): 2}); 23/36 patch vectors carry transport.json (computed against the pinned checkout's conformance/manifest.json, not separately scripted in this kit)"
+      },
+      "historical": {
+        "output": "audit/historical/kit-mock-evaluators.out",
+        "expected_summary": "Counter({('patch', ''): 32, ('negative', 'apply'): 27, ('negative', 'parse'): 4, ('token', ''): 2})"
+      }
+    },
+    {
+      "claim": "§6.1: every non-reject input parses under the grammar (49/49 includes this check)",
+      "script": "loomground-ref/tests/test_machine_readable.py",
+      "args": "none",
+      "current": {
+        "output": "audit/current/ref-machine-readable.out",
+        "expected_summary": "[PASS] every non-reject input parses under the grammar"
+      },
+      "historical": {
+        "output": "audit/historical/ref-machine-readable.out",
+        "expected_summary": "[PASS] every non-reject input parses under the grammar"
+      }
+    },
+    {
+      "claim": "Historical failures F1 (invalid tokens evaluated, both evaluators fail open on several shapes at the audited pins), F2 (solver skips authority at a piped downstream gate, P-auth), F3 (solver drops a fan-out branch, P-fanout; diamond consequence D=auto/act vs reserved/withhold)",
+      "script": "run_experiments.py --series E; run_experiments.py --series P",
+      "args": "--series E ; --series P",
+      "current": {
+        "output": "audit/current/probes-E.out, audit/current/probes-P.out",
+        "expected_summary": "7/7 E-series agree; 4/4 P-series agree (all fixed)"
+      },
+      "historical": {
+        "output": "audit/historical/probes-E.out, audit/historical/probes-P.out",
+        "expected_summary": "4/7 E-series agree (E3a, E3b, E3g disagree: ref raises/aborts, solver fails open); 1/4 P-series agree (P-auth, P-fanout, diamond disagree - solver B never evaluated / fails open; P-fanin control agrees)"
+      }
+    },
+    {
+      "claim": "§7.1 stub/mock-evaluator scores: a crashing parser scores 4/N, a validate-always-false evaluator scores N-4/N",
+      "script": "audit/kit-mock-evaluators.py",
+      "args": "none",
+      "current": {
+        "output": "audit/current/kit-mock-evaluators.out",
+        "expected_summary": "parse always crashes (ZeroDivisionError): 4 / 69; parse accepts all, validate always ok=False: 27 / 69"
+      },
+      "historical": {
+        "output": "audit/historical/kit-mock-evaluators.out",
+        "expected_summary": "parse always crashes (ZeroDivisionError): 4 / 65; parse accepts all, validate always ok=False: 27 / 65"
+      }
+    },
+    {
+      "claim": "Randomized ref-vs-solver differential test (seeded, reproducible)",
+      "script": "audit/differential.py",
+      "args": "6000 1  (6000 cases, seed 1)",
+      "current": {
+        "output": "audit/current/differential.out",
+        "expected_summary": "cases=6000 rejected=0 evaluated=6000 disagree=0"
+      },
+      "historical": {
+        "output": "audit/historical/differential.out",
+        "expected_summary": "cases=6000 rejected=0 evaluated=6000 disagree=1908 (nonzero exit; ref raises on some invalid-token cases, recorded as an observation, not an abort, by the harness printing the first 5 disagreements before continuing)"
+      }
+    }
+  ],
+  "pins_note": "historical = the pins the paper states (§5.4) and audit/published/pins.txt; set 2026-10-20, replacing the 2026-09-26 set (cf221b4/408554b/586696c/f43dfd6/ead0ad2). The claims ledger below dates from 2026-09-26 and describes the kit at that earlier set: its vector counts (65/69) and the historical failures F1-F3 are from those pins. At the paper's pins the historical run gives 75/75 (ref, ref-governance, solver), 49 machine-readable checks, 11 H-probes agreeing and disagree=0, and no F1-F3 failure; the paper does not rely on them. The paper's own claims ledger is Table 5, with its evidence under audit/published/."
+}

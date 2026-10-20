@@ -1,0 +1,52 @@
+[E] E3a invalid risk=catastrophic (adjudication F1/E3a)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3b kind missing, risk=high (adjudication F1/E3b)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3c id missing, risk=high (adjudication F1/missing-id)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3d party missing (adjudication F1/missing-party)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3e provenance missing (adjudication F1/missing-provenance)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3f kind=None (adjudication F1/kind=None)
+    ref:        log=[]
+    solver:     log=[]
+    expected:   log=[]
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[E] E3g mixed batch: valid t0 high then invalid t1 catastrophic (adjudication F1/mixed-batch)
+    ref:      g=reserved/withhold  log=['reserved']
+    solver:   g=reserved/withhold  log=['reserved']
+    expected: g=reserved/withhold  log=['reserved']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+
+7/7 probes agree (ref==solver) in this series selection
+exit 0

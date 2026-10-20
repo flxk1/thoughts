@@ -1,0 +1,52 @@
+  [PASS] schemas are valid JSON Schema (draft 2020-12)
+  [PASS] observation schema validates all expected.json
+  [PASS] token schema agrees with token-validation flags
+  [PASS] patch schema validates the example patch IR
+  [PASS] verdicts.json alphabet == impl verdict chain
+  [PASS] verdicts.json releases-at-master: only auto
+  [PASS] risk.json levels == impl risk order
+  [PASS] node-classes == {actor,human,gate,master}
+  [PASS] cords.json == the 3 permitted pairings
+  [PASS] card.nodes == node classes
+  [PASS] card.verdicts == verdicts alphabet
+  [PASS] card.declarations == declarations vocab
+  [PASS] card.token == token schema fields
+  [PASS] manifest lists exactly the vector dirs
+  [PASS] manifest negative stages match reject.json
+  [PASS] grammar declares keyword 'actor'
+  [PASS] grammar declares keyword 'human'
+  [PASS] grammar declares keyword 'gate'
+  [PASS] grammar declares keyword 'cord'
+  [PASS] grammar declares keyword 'reserve'
+  [PASS] grammar declares keyword 'prohibit'
+  [PASS] grammar declares keyword 'obligation'
+  [PASS] grammar declares keyword 'redress'
+  [PASS] grammar declares keyword 'transfer'
+  [PASS] llms.txt covers node 'actor'
+  [PASS] llms.txt covers node 'human'
+  [PASS] llms.txt covers node 'gate'
+  [PASS] llms.txt covers node 'master'
+  [PASS] llms.txt covers verdict 'auto'
+  [PASS] llms.txt covers verdict 'human'
+  [PASS] llms.txt covers verdict 'refused'
+  [PASS] llms.txt covers verdict 'reserved'
+  [PASS] llms.txt covers verdict 'prohibited'
+  [PASS] llms.txt covers declaration 'reserve'
+  [PASS] llms.txt covers declaration 'quorum'
+  [PASS] llms.txt covers declaration 'prohibit'
+  [PASS] llms.txt covers declaration 'temporal'
+  [PASS] llms.txt covers declaration 'obligation'
+  [PASS] llms.txt covers declaration 'redress'
+  [PASS] llms.txt covers declaration 'party'
+  [PASS] llms.txt covers declaration 'delegation'
+  [PASS] llms.txt covers declaration 'grade'
+  [PASS] llms.txt covers declaration 'on-behalf-of'
+  [PASS] llms.txt covers declaration 'mandate'
+  [PASS] llms.txt covers declaration 'transfer'
+  [PASS] llms.txt covers declaration 'consign'
+  [PASS] llms.txt covers declaration 'reversibility'
+  [PASS] llms.txt covers declaration 'uncertainty'
+  [PASS] every non-reject input parses under the grammar
+
+49/49 machine-readable tests pass
+exit 0

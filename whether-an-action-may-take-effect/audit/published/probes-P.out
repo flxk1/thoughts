@@ -1,0 +1,31 @@
+[P] P-auth ungranted downstream gate
+    ref:      A=auto/None B=refused/withhold  log=['auto', 'refused']
+    solver:   A=auto/None B=refused/withhold  log=['auto', 'refused']
+    expected: B=refused/withhold  log=['auto', 'refused']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[P] P-fanout A pipes to B and C
+    ref:      A=auto/None B=auto/act C=auto/act  log=['auto', 'auto', 'auto']
+    solver:   A=auto/None B=auto/act C=auto/act  log=['auto', 'auto', 'auto']
+    expected: B=auto/act C=auto/act  log=['auto', 'auto', 'auto']
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[P] P-diamond fan-out/fan-in, B floor high, reserve op>=high
+    ref:      A=reserved/None B=reserved/None C=reserved/None D=reserved/withhold  log=['reserved', 'reserved', 'reserved', 'reserved']
+    solver:   A=reserved/None B=reserved/None C=reserved/None D=reserved/withhold  log=['reserved', 'reserved', 'reserved', 'reserved']
+    expected: (named gates only) {"D": {"verdict": "reserved", "master": "withhold"}}
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+[P] P-fanin control: B and C into D, reserved at C
+    ref:      B=auto/None D=reserved/withhold C=reserved/None  log=['auto', 'auto', 'reserved', 'reserved']
+    solver:   B=auto/None D=reserved/withhold C=reserved/None  log=['auto', 'auto', 'reserved', 'reserved']
+    expected: (named gates only) {"D": {"verdict": "reserved", "master": "withhold"}}
+    agree(ref==solver):        True
+    ref matches spec-expected: True
+    solver matches expected:   True
+
+4/4 probes agree (ref==solver) in this series selection
+exit 0
